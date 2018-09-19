@@ -7,7 +7,7 @@ else
 	mkdir -p "$ASDF_INSTALL_PATH"
 	cd "$ASDF_INSTALL_PATH" || exit 1
 	curl -OJL https://dl.bintray.com/groovy/maven/${ASDF_INSTALL_VERSION}.zip
-	unzip ${ASDF_INSTALL_VERSION}.zip
+	unzip ${ASDF_INSTALL_VERSION}.zip -d ${ASDF_INSTALL_VERSION}
 	rm ${ASDF_INSTALL_VERSION}.zip
-	mv ${ASDF_INSTALL_VERSION}/* .
+	mv ${ASDF_INSTALL_VERSION}/*/* .
 fi
