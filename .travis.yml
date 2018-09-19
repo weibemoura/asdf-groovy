@@ -1,4 +1,6 @@
-language: c
+language: java
+jdk:
+  - oraclejdk7
 script: asdf plugin-test groovy https://github.com/weibemoura/asdf-groovy.git
 before_script:
   - git clone https://github.com/asdf-vm/asdf.git
