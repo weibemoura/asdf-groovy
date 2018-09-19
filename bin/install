@@ -6,9 +6,16 @@ then
 else
 	mkdir -p "$ASDF_INSTALL_PATH"
 	cd "$ASDF_INSTALL_PATH" || exit 1
-	VERSION=$(echo $ASDF_INSTALL_VERSION | awk -F- '{print "apache-"$1"-binary-"$2}')
-	curl -OJL https://dl.bintray.com/groovy/maven/${VERSION}.zip
-	unzip ${VERSION}.zip
-	rm ${VERSION}.zip
+
+	rm -rf ${ASDF_INSTALL_VERSION}*
+
+	curl -OJL https://dl.bintray.com/groovy/maven/${ASDF_INSTALL_VERSION}.zip
+	unzip ${ASDF_INSTALL_VERSION}.zip -d ${ASDF_INSTALL_VERSION}
+	rm ${ASDF_INSTALL_VERSION}.zip
+
+	mv ${ASDF_INSTALL_VERSION}/*/* ${ASDF_INSTALL_VERSION}/
+	VERSION=$(echo ${ASDF_INSTALL_VERSION} | awk -F- '{print $NF}')
+	rm -rf ${ASDF_INSTALL_VERSION}/*${VERSION}
+
 	mv ${ASDF_INSTALL_VERSION}/* .
 fi

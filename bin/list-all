@@ -1,3 +1,2 @@
 #!/bin/sh 
-#curl -s https://dl.bintray.com/groovy/maven/ | grep -e "apache-groovy-binary.*.zip\"" | sed -e "s#^.*:##" -e "s#.zip.*##" | sort -t. -n | paste -s -d" " -
-curl -s https://dl.bintray.com/groovy/maven/ | grep -e "apache-groovy-binary.*.zip\"" | sed -e "s#^.*:apache-##" -e "s#binary-##" -e "s#.zip.*##" | sort -t. -n | paste -s -d" " -
+curl -s https://dl.bintray.com/groovy/maven/ | grep -e ".*-binary.*.zip\"" | sed -e "s#^.*:##" -e "s#.zip.*##" | sort -t. -n | paste -s -d" " -
