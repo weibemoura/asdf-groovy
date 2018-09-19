@@ -10,5 +10,5 @@ else
 	curl -OJL https://dl.bintray.com/groovy/maven/${VERSION}.zip
 	unzip ${VERSION}.zip
 	rm ${VERSION}.zip
-	#mv ${ASDF_INSTALL_VERSION}/*/* .
+	mv ${ASDF_INSTALL_VERSION}/* .
 fi
