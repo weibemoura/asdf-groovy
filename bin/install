@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # instructions taken straight from https://gradle.org/install/#manually
 if [ "$ASDF_INSTALL_TYPE" = "ref" ]
 then
@@ -7,15 +7,17 @@ else
 	mkdir -p "$ASDF_INSTALL_PATH"
 	cd "$ASDF_INSTALL_PATH" || exit 1
 
-	rm -rf ${ASDF_INSTALL_VERSION}*
+	if [[ $ASDF_INSTALL_PATH =~ "$ASDF_INSTALL_VERSION" ]]; then
+		rm -rf *
 
-	curl -OJL https://dl.bintray.com/groovy/maven/${ASDF_INSTALL_VERSION}.zip
-	unzip ${ASDF_INSTALL_VERSION}.zip -d ${ASDF_INSTALL_VERSION}
-	rm ${ASDF_INSTALL_VERSION}.zip
+		VERSION=$(echo $ASDF_INSTALL_VERSION | sed -e "s#[a-z0-9\-]*\-##")
+		ZIP="${ASDF_INSTALL_VERSION}.zip"
+		curl -OJL https://dl.bintray.com/groovy/maven/${ZIP}
+		unzip -o ${ZIP}
+		rm ${ZIP}
 
-	mv ${ASDF_INSTALL_VERSION}/*/* ${ASDF_INSTALL_VERSION}/
-	VERSION=$(echo ${ASDF_INSTALL_VERSION} | awk -F- '{print $NF}')
-	rm -rf ${ASDF_INSTALL_VERSION}/*${VERSION}
-
-	mv ${ASDF_INSTALL_VERSION}/* .
+		cp -R groovy-*/* .
+		rm -rf groovy-*/
+		chmod +x bin/*
+	fi
 fi
