@@ -1,7 +1,3 @@
 #!/bin/bash
-# if asdf provides java, then let's use that rather the system one (if at all avail)
-if asdf current java > /dev/null 2>&1 ; then
-    JAVA_HOME=$(asdf where java)
-    export JAVA_HOME
-fi
-
+JAVA_HOME=$(realpath $(dirname $(readlink -f $(asdf which java)))/../)
+export JAVA_HOME
