@@ -1,3 +1,7 @@
-#!/bin/bash
-JAVA_HOME=$(realpath $(dirname $(readlink -f $(asdf which java)))/../)
-export JAVA_HOME
+#!/usr/bin/env bash
+
+java_path="$(asdf which java)"
+if [[ -n "${java_path}" ]]; then
+  JAVA_HOME="$(dirname "$(dirname "$(realpath "${java_path}")")")"
+  export JAVA_HOME
+fi

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # instructions taken straight from https://gradle.org/install/#manually
 if [ "$ASDF_INSTALL_TYPE" = "ref" ]
 then
