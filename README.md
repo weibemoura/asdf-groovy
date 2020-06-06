@@ -20,7 +20,9 @@ Java is required. It can be installed using the asdf java plugin.
 ### JAVA_HOME
 
 The plugin requires `JAVA_HOME` to be exported. For your convenience, it exports it for you using `asdf` but if you use the `JAVA_HOME` export feature of `asdf-java` or export it yourself, you can disable this functionality by:  
-`export ASDF_GROOVY_DISABLE_JAVA_HOME_EXPORT=true`
+```shell
+export ASDF_GROOVY_DISABLE_JAVA_HOME_EXPORT=true
+```
 
 ## Use
 
