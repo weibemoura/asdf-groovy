@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-java_path="$(asdf which java)"
-if [[ -n "${java_path}" ]]; then
-  JAVA_HOME="$(dirname "$(dirname "$(realpath "${java_path}")")")"
-  export JAVA_HOME
+if [[ ! ("$ASDF_GROOVY_DISABLE_JAVA_HOME_EXPORT" = true) ]]; then
+  java_path="$(asdf which java)"
+  if [[ -n "${java_path}" ]]; then
+    JAVA_HOME="$(dirname "$(dirname "$(realpath "${java_path}")")")"
+    export JAVA_HOME
+  fi
 fi
