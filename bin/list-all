@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-curl -s https://dl.bintray.com/groovy/maven/ | grep -e ".*apache-groovy-binary.*.zip\"" | sed -e "s#^.*:##" -e "s#.zip.*##" -e "s#^apache-groovy-binary-##" | sort -t. -n | paste -s -d" " -
-#curl -s https://dl.bintray.com/groovy/maven/ | grep -e ".*-binary.*.zip\"" | sed -e "s#^.*:##" -e "s#.zip.*##" -e "s#[a-z0-9\-]*\-##" | sort -t. -n | paste -s -d" " -
+curl -s https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/ | grep -e '.*apache-groovy-binary.*.zip"' | cut -d '"' -f 2 | sed -e 's#^apache-groovy-binary-##' -e 's#.zip$##' | sort --version-sort | xargs echo

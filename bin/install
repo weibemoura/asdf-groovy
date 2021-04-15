@@ -19,9 +19,9 @@ else
 		fi
 
 		ZIP="${ASDF_INSTALL_VERSION}.zip"
-		curl -OJL https://dl.bintray.com/groovy/maven/${ZIP}
-		unzip -o ${ZIP}
-		rm ${ZIP}
+		curl -OJL "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/${ZIP}"
+		unzip -o "${ZIP}"
+		rm "${ZIP}"
 
 		cp -R groovy-*/* .
 		rm -rf groovy-*/
