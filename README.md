@@ -1,6 +1,6 @@
 # asdf-groovy
 
-[![Build Status](https://github.com/weibemoura/asdf-groovy/actions/workflows/asdf.yml/badge.svg)]
+[![Build Status](https://github.com/weibemoura/asdf-groovy/actions/workflows/asdf.yml/badge.svg)](https://github.com/weibemoura/asdf-groovy/actions)
 
 [Groovy](http://groovy-lang.org/) plugin for [asdf](https://github.com/asdf-vm/asdf) version manager
 
