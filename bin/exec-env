@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ ! ("$ASDF_GROOVY_DISABLE_JAVA_HOME_EXPORT" = true) ]]; then
+if [[ ! ("${ASDF_GROOVY_DISABLE_JAVA_HOME_EXPORT:-}" = true) ]]; then
   java_path="$(asdf which java)"
   if [[ -n "${java_path}" ]]; then
     JAVA_HOME="$(dirname "$(dirname "$(realpath "${java_path}")")")"
